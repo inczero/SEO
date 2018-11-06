@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">SEO</string>
+
+    <!--Register activity strings-->
+    <string name="email_hint">email</string>
+    <string name="password_hint">password</string>
+    <string name="login_button_email">login</string>
+    <string name="login_button_phone_number">login with phone</string>
+    <string name="sign_up_text">If you\'re not registered yet, sign up!</string>
 </resources>
