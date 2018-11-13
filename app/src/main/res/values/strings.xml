@@ -1,10 +1,18 @@
 <resources>
-    <string name="app_name">SEO</string>
+    <string name="app_name" translatable="false">SEO</string>
 
-    <!--Register activity strings-->
-    <string name="email_hint">email</string>
-    <string name="password_hint">password</string>
+    <!--Login activity strings-->
+    <string name="login_email_hint">email</string>
+    <string name="login_password_hint">password</string>
     <string name="login_button_email">login</string>
     <string name="login_button_phone_number">login with phone</string>
     <string name="sign_up_text">If you\'re not registered yet, sign up!</string>
+
+    <!--Email register activity strings-->
+    <string name="register_first_name_hint">first name</string>
+    <string name="register_last_name_hint">last name</string>
+    <string name="register_email_hint">email</string>
+    <string name="register_password_hint">password</string>
+    <string name="register_reenter_password_hint">reenter password</string>
+    <string name="register_button_email">sign up</string>
 </resources>
