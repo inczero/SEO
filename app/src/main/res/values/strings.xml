@@ -8,6 +8,10 @@
     <string name="login_button_phone_number">login with phone</string>
     <string name="sign_up_text">If you\'re not registered yet, sign up!</string>
 
+    <!--No network layout(Login activity)-->
+    <string name="no_network">No Internet connection. Make sure that Wi-Fi or cellular mobile data is turned on, then come back.</string>
+    <string name="exit_button_text">EXIT</string>
+
     <!--Email register activity strings-->
     <string name="register_first_name_hint">first name</string>
     <string name="register_last_name_hint">last name</string>
