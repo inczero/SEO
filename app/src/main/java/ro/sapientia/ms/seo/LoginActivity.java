@@ -62,6 +62,12 @@ public class LoginActivity extends AppCompatActivity {
                         return;
                     }
 
+                    if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                        emailEditText.setError("Invalid email address!");
+                        emailEditText.requestFocus();
+                        return;
+                    }
+
                     if (password.isEmpty()) {
                         passwordEditText.setError("Please enter your password!");
                         passwordEditText.requestFocus();

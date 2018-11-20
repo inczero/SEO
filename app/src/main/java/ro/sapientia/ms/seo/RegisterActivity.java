@@ -7,7 +7,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -31,11 +32,11 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        final TextView firstNameTextView = findViewById(R.id.registerFirstNameInput);
-        final TextView lastNameTextView = findViewById(R.id.registerLastNameInput);
-        final TextView emailTextView = findViewById(R.id.registerEmailInput);
-        final TextView passwordTextView = findViewById(R.id.registerPasswordInput);
-        final TextView reenterPasswordTextView = findViewById(R.id.registerReenterPasswordInput);
+        final EditText firstNameEditText = findViewById(R.id.registerFirstNameInput);
+        final EditText lastNameEditText = findViewById(R.id.registerLastNameInput);
+        final EditText emailEditText = findViewById(R.id.registerEmailInput);
+        final EditText passwordEditText = findViewById(R.id.registerPasswordInput);
+        final EditText reenterPasswordEditText = findViewById(R.id.registerReenterPasswordInput);
         Button signUpButton = findViewById(R.id.emailSignUpButton);
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -44,51 +45,57 @@ public class RegisterActivity extends AppCompatActivity {
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String firstName = firstNameTextView.getText().toString();
-                final String lastName = lastNameTextView.getText().toString();
-                String email = emailTextView.getText().toString();
-                String password = passwordTextView.getText().toString();
-                String reenterPassword = reenterPasswordTextView.getText().toString();
+                final String firstName = firstNameEditText.getText().toString();
+                final String lastName = lastNameEditText.getText().toString();
+                String email = emailEditText.getText().toString();
+                String password = passwordEditText.getText().toString();
+                String reenterPassword = reenterPasswordEditText.getText().toString();
 
                 if (firstName.isEmpty()) {
-                    firstNameTextView.setError("Please enter your first name!");
-                    firstNameTextView.requestFocus();
+                    firstNameEditText.setError("Please enter your first name!");
+                    firstNameEditText.requestFocus();
                     return;
                 }
 
                 if (lastName.isEmpty()) {
-                    lastNameTextView.setError("Please enter your last name!");
-                    lastNameTextView.requestFocus();
+                    lastNameEditText.setError("Please enter your last name!");
+                    lastNameEditText.requestFocus();
                     return;
                 }
 
                 if (email.isEmpty()) {
-                    emailTextView.setError("Please enter your email address!");
-                    emailTextView.requestFocus();
+                    emailEditText.setError("Please enter your email address!");
+                    emailEditText.requestFocus();
+                    return;
+                }
+
+                if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    emailEditText.setError("Invalid email address!");
+                    emailEditText.requestFocus();
                     return;
                 }
 
                 if (password.isEmpty()) {
-                    passwordTextView.setError("Please enter a password!");
-                    passwordTextView.requestFocus();
+                    passwordEditText.setError("Please enter a password!");
+                    passwordEditText.requestFocus();
                     return;
                 }
 
                 if (password.length() < 8) {
-                    passwordTextView.setError("The password must be at least 8 characters long!");
-                    passwordTextView.requestFocus();
+                    passwordEditText.setError("The password must be at least 8 characters long!");
+                    passwordEditText.requestFocus();
                     return;
                 }
 
                 if (reenterPassword.isEmpty()) {
-                    reenterPasswordTextView.setError("Please enter your password here again!");
-                    reenterPasswordTextView.requestFocus();
+                    reenterPasswordEditText.setError("Please enter your password here again!");
+                    reenterPasswordEditText.requestFocus();
                     return;
                 }
 
                 if (password.compareTo(reenterPassword) != 0) {
-                    reenterPasswordTextView.setError("Your password does not match! Please reenter it!");
-                    reenterPasswordTextView.requestFocus();
+                    reenterPasswordEditText.setError("Your password does not match! Please reenter it!");
+                    reenterPasswordEditText.requestFocus();
                     return;
                 }
 
@@ -99,8 +106,8 @@ public class RegisterActivity extends AppCompatActivity {
                             try {
                                 throw task.getException();
                             } catch (FirebaseAuthUserCollisionException e) {
-                                emailTextView.setError("This email is already registered!");
-                                emailTextView.requestFocus();
+                                emailEditText.setError("This email is already registered!");
+                                emailEditText.requestFocus();
                             } catch (Exception e) {
                                 Toast.makeText(RegisterActivity.this, "An error happened!", Toast.LENGTH_SHORT).show();
                             }
