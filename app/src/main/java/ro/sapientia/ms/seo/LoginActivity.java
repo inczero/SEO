@@ -7,6 +7,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
@@ -81,6 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                finish();
                             } else {
                                 try {
                                     throw task.getException();
@@ -99,6 +101,8 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Toast.makeText(getApplicationContext(), "Login with phone number is currently not implemented!", Toast.LENGTH_SHORT).show();
+                    //View v = findViewById(android.R.id.content);
+                    //Snackbar.make(v, "Login with phone number is currently not implemented!", Snackbar.LENGTH_SHORT).show();
                 }
             });
 
@@ -106,14 +110,10 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+                    finish();
                 }
             });
-
-
-
         }
-
-
     }
 
     //Check for internet connection
