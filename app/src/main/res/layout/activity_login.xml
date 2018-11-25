@@ -55,7 +55,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/passwordInput" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordInput" />
 
     <Button
         android:id="@+id/phoneLoginButton"
@@ -82,7 +82,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/phoneLoginButton"
+        app:layout_constraintTop_toBottomOf="@+id/phoneLoginButton"
         android:fontFamily="sans-serif-thin" />
 
 </android.support.constraint.ConstraintLayout>

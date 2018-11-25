@@ -19,4 +19,9 @@
     <string name="register_password_hint">password</string>
     <string name="register_reenter_password_hint">reenter password</string>
     <string name="register_button_email">sign up</string>
+
+    <!--Bottom navigation menu strings-->
+    <string name="bottom_nav_sockets">Smart sockets</string>
+    <string name="bottom_nav_profile">Profile</string>
+    <string name="bottom_nav_schedule">Schedule</string>
 </resources>
