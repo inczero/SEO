@@ -100,9 +100,9 @@ public class LoginActivity extends AppCompatActivity {
             loginWithPhoneButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getApplicationContext(), "Login with phone number is currently not implemented!", Toast.LENGTH_SHORT).show();
-                    //View v = findViewById(android.R.id.content);
-                    //Snackbar.make(v, "Login with phone number is currently not implemented!", Snackbar.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "Login with phone number is currently not implemented!", Toast.LENGTH_SHORT).show();
+                    View v = findViewById(android.R.id.content);
+                    Snackbar.make(v, "Login with phone number is currently not implemented!", Snackbar.LENGTH_SHORT).show();
                 }
             });
 

@@ -116,7 +116,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                             ArrayList<SmartSocket> ownedProducts = new ArrayList<>();
 
-                            User newUserInformation = new User(firstName, lastName, "", "", ownedProducts);
+                            User newUserInformation = new User(firstName, lastName, ownedProducts);
 
                             FirebaseUser newUserAuth = FirebaseAuth.getInstance().getCurrentUser();
                             databaseReference.child(newUserAuth.getUid()).setValue(newUserInformation);
@@ -129,5 +129,11 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+        finish();
     }
 }
