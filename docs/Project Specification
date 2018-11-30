@@ -1,0 +1,22 @@
+SEO – Smart Electrical Outlet
+
+A projekt célja egy olyan Android alkalmazás készítése, amely programozható és kezelhető egy
+intelligens csatlakozó aljzat (priza). A csatlakozó aljzat ESP32 mikrovezérlővel lesz megvalósítva.
+
+Funkcionális követelmények:
+1. bejelentkezés/regisztráció
+2. profil kezelése
+3. új csatlakozó hozzáadása a felhasználóhoz
+4. a csatlakozótól érkező adatok (aktív teljesítmény) leolvasás adatbázisból (Firebase) és megjelenítése
+5. a csatlakozó programozása (milyen időpontban kapcsoljon be és ki)
+6. csatlakozók kezelése (pl. törlés)
+7. saját csatlakozók listázása
+
+Kötelező komponensek:
+1. Firebase Email&Password Authentication
+2. Firebase Real Time Database
+3. Firebase Storage
+4. Glide könyvtár
+5. RecylerView használata a listákhoz
+6. ConstraintLayout használta
+7. Bottom Navigation használata
