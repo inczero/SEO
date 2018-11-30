@@ -45,11 +45,11 @@ public class LoginActivity extends AppCompatActivity {
             setContentView(R.layout.activity_login);
 
             //Layout elements
-            final EditText emailEditText = findViewById(R.id.emailInput);
-            final EditText passwordEditText = findViewById(R.id.passwordInput);
-            Button loginButton = findViewById(R.id.emailLoginButton);
-            Button loginWithPhoneButton = findViewById(R.id.phoneLoginButton);
-            TextView signUpTextView = findViewById(R.id.signUpTextView);
+            final EditText emailEditText = findViewById(R.id.email_input);
+            final EditText passwordEditText = findViewById(R.id.password_input);
+            Button loginButton = findViewById(R.id.email_login_button);
+            Button loginWithPhoneButton = findViewById(R.id.phone_login_button);
+            TextView signUpTextView = findViewById(R.id.sign_up_text_view);
 
             loginButton.setOnClickListener(new View.OnClickListener() {
                 @Override

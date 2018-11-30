@@ -8,7 +8,7 @@
     android:padding="16dp">
 
     <ImageView
-        android:id="@+id/appLogo"
+        android:id="@+id/app_logo"
         android:layout_width="160dp"
         android:layout_height="160dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -17,7 +17,7 @@
         app:srcCompat="@drawable/ic_seo" />
 
     <EditText
-        android:id="@+id/emailInput"
+        android:id="@+id/email_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -28,10 +28,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appLogo" />
+        app:layout_constraintTop_toBottomOf="@+id/app_logo" />
 
     <EditText
-        android:id="@+id/passwordInput"
+        android:id="@+id/password_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -42,10 +42,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailInput" />
+        app:layout_constraintTop_toBottomOf="@+id/email_input" />
 
     <Button
-        android:id="@+id/emailLoginButton"
+        android:id="@+id/email_login_button"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -55,10 +55,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordInput" />
+        app:layout_constraintTop_toBottomOf="@+id/password_input" />
 
     <Button
-        android:id="@+id/phoneLoginButton"
+        android:id="@+id/phone_login_button"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -69,10 +69,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailLoginButton" />
+        app:layout_constraintTop_toBottomOf="@+id/email_login_button" />
 
     <TextView
-        android:id="@+id/signUpTextView"
+        android:id="@+id/sign_up_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
@@ -82,7 +82,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneLoginButton"
+        app:layout_constraintTop_toBottomOf="@+id/phone_login_button"
         android:fontFamily="sans-serif-thin" />
 
 </android.support.constraint.ConstraintLayout>

@@ -32,12 +32,12 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        final EditText firstNameEditText = findViewById(R.id.registerFirstNameInput);
-        final EditText lastNameEditText = findViewById(R.id.registerLastNameInput);
-        final EditText emailEditText = findViewById(R.id.registerEmailInput);
-        final EditText passwordEditText = findViewById(R.id.registerPasswordInput);
-        final EditText reenterPasswordEditText = findViewById(R.id.registerReenterPasswordInput);
-        Button signUpButton = findViewById(R.id.emailSignUpButton);
+        final EditText firstNameEditText = findViewById(R.id.register_first_name_input);
+        final EditText lastNameEditText = findViewById(R.id.register_last_name_input);
+        final EditText emailEditText = findViewById(R.id.register_email_input);
+        final EditText passwordEditText = findViewById(R.id.register_password_input);
+        final EditText reenterPasswordEditText = findViewById(R.id.register_reenter_password_input);
+        Button signUpButton = findViewById(R.id.email_sign_up_button);
 
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");

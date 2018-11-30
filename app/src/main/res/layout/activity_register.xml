@@ -7,7 +7,7 @@
     android:padding="16dp">
 
     <ImageView
-        android:id="@+id/appLogo"
+        android:id="@+id/app_logo"
         android:layout_width="160dp"
         android:layout_height="160dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -16,7 +16,7 @@
         app:srcCompat="@drawable/ic_seo" />
 
     <EditText
-        android:id="@+id/registerFirstNameInput"
+        android:id="@+id/register_first_name_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -27,10 +27,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appLogo" />
+        app:layout_constraintTop_toBottomOf="@+id/app_logo" />
 
     <EditText
-        android:id="@+id/registerLastNameInput"
+        android:id="@+id/register_last_name_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -41,10 +41,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerFirstNameInput" />
+        app:layout_constraintTop_toBottomOf="@+id/register_first_name_input" />
 
     <EditText
-        android:id="@+id/registerEmailInput"
+        android:id="@+id/register_email_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -55,10 +55,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerLastNameInput" />
+        app:layout_constraintTop_toBottomOf="@+id/register_last_name_input" />
 
     <EditText
-        android:id="@+id/registerPasswordInput"
+        android:id="@+id/register_password_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -69,10 +69,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerEmailInput" />
+        app:layout_constraintTop_toBottomOf="@+id/register_email_input" />
 
     <EditText
-        android:id="@+id/registerReenterPasswordInput"
+        android:id="@+id/register_reenter_password_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -83,10 +83,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerPasswordInput" />
+        app:layout_constraintTop_toBottomOf="@+id/register_password_input" />
 
     <Button
-        android:id="@+id/emailSignUpButton"
+        android:id="@+id/email_sign_up_button"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -96,6 +96,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerReenterPasswordInput" />
+        app:layout_constraintTop_toBottomOf="@+id/register_reenter_password_input" />
 
 </android.support.constraint.ConstraintLayout>
