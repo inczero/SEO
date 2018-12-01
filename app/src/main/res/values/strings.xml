@@ -24,4 +24,8 @@
     <string name="bottom_nav_outlets">Smart outlets</string>
     <string name="bottom_nav_profile">Profile</string>
     <string name="bottom_nav_schedule">Schedule</string>
+
+    <!--Smart Outlets status in fragment -->
+    <string name="smart_outlet_status_turned_on">Turned on</string>
+    <string name="smart_outlet_status_stand_by">Stand by</string>
 </resources>
