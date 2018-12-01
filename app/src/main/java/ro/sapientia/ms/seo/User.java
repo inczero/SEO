@@ -6,9 +6,9 @@ public class User {
     private String firstName;
     private String lastName;
 //    private String profilePictureDownloadLink;
-    private ArrayList<SmartSocket> ownedProducts;
+    private ArrayList<SmartOutlet> ownedProducts;
 
-    public User(String firstName, String lastName, ArrayList<SmartSocket> ownedProducts) {
+    public User(String firstName, String lastName, ArrayList<SmartOutlet> ownedProducts) {
         this.firstName = firstName;
         this.lastName = lastName;
         //this.profilePictureDownloadLink = profilePictureDownloadLink;
@@ -27,7 +27,7 @@ public class User {
 //        return profilePictureDownloadLink;
 //    }
 
-    public ArrayList<SmartSocket> getOwnedProducts() {
+    public ArrayList<SmartOutlet> getOwnedProducts() {
         return ownedProducts;
     }
 

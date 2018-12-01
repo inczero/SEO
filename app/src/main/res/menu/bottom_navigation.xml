@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/nav_sockets"
-        android:icon="@drawable/ic_smart_socket_24dp"
-        android:title="@string/bottom_nav_sockets" />
+        android:id="@+id/nav_outlets"
+        android:icon="@drawable/ic_smart_outlet_24dp"
+        android:title="@string/bottom_nav_outlets" />
 
     <item
         android:id="@+id/nav_schedule"

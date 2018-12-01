@@ -1,10 +1,10 @@
 package ro.sapientia.ms.seo;
 
-public class SmartSocket {
+public class SmartOutlet {
     private String identificationNumber;
     private String name;
 
-    public SmartSocket(String identificationNumber, String name) {
+    public SmartOutlet(String identificationNumber, String name) {
         this.identificationNumber = identificationNumber;
         this.name = name;
     }

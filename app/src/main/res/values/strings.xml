@@ -21,7 +21,7 @@
     <string name="register_button_email">sign up</string>
 
     <!--Bottom navigation menu strings-->
-    <string name="bottom_nav_sockets">Smart sockets</string>
+    <string name="bottom_nav_outlets">Smart outlets</string>
     <string name="bottom_nav_profile">Profile</string>
     <string name="bottom_nav_schedule">Schedule</string>
 </resources>

@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_profile :
                         selectedFragment = new ProfileFragment();
                         break;
-                    case R.id.nav_sockets :
-                        selectedFragment = new SmartSocketsFragment();
+                    case R.id.nav_outlets :
+                        selectedFragment = new SmartOutletsFragment();
                         break;
                     case R.id.nav_schedule :
                         selectedFragment = new ScheduleFragment();
@@ -39,6 +39,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SmartSocketsFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SmartOutletsFragment()).commit();
     }
 }
