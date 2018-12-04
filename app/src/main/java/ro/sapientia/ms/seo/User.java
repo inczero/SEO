@@ -31,6 +31,8 @@ public class User {
         return ownedProducts;
     }
 
+
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -42,4 +44,6 @@ public class User {
 //    public void setProfilePictureDownloadLink(String profilePictureDownloadLink) {
 //        this.profilePictureDownloadLink = profilePictureDownloadLink;
 //    }
+
+    //TODO : Check if an operation date is done -> remove it from the list
 }

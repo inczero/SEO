@@ -28,4 +28,10 @@
     <!--Smart Outlets status in fragment -->
     <string name="smart_outlet_status_turned_on">Turned on</string>
     <string name="smart_outlet_status_stand_by">Stand by</string>
+
+    <!--Schedule list item field names in fragment-->
+    <string name="schedule_list_field_name">Name:</string>
+    <string name="schedule_list_field_start">Start:</string>
+    <string name="schedule_list_field_end">End:</string>
+    <string name="schedule_list_field_operation_time">Time:</string>
 </resources>

@@ -32,16 +32,17 @@ public class SmartOutletsFragment extends Fragment implements SmartOutletsListAd
         RecyclerView.Adapter mAdapter = new SmartOutletsListAdapter(smartOutlets, this);
         mRecyclerView.setAdapter(mAdapter);
 
-        //ADD EMPTY VIEW!!!!!
+        //TODO : ADD EMPTY VIEW!
 
         return view;
     }
 
     @Override
     public void onListItemClick(int clickedItemIndex) {
-        //Add a separate fragment here
+        //TODO : Smart Outlet fragment onClick.
     }
 
+    //for debugging purposes
     private void fillUpList() {
         SmartOutlet outlet1 = new SmartOutlet("12345", "Kitchen outlet", true, null);
         SmartOutlet outlet2 = new SmartOutlet("12346", "Bedroom1 outlet", true, null);

@@ -14,6 +14,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //TODO : Check if Date holders and outlet holders are empty.
+        //TODO : Check if new date is added and update the list.
+        //TODO : Put loading icon when downloading takes too much time.
+        //TODO : Change the selected color of Bottom Navigation View.
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
