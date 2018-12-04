@@ -34,4 +34,10 @@
     <string name="schedule_list_field_start">Start:</string>
     <string name="schedule_list_field_end">End:</string>
     <string name="schedule_list_field_operation_time">Time:</string>
+
+    <!--Profile fragment button strings-->
+    <string name="profile_change_email_button">change email</string>
+    <string name="profile_change_password_button">change password</string>
+    <string name="profile_add_new_outlet_button">add new outlet</string>
+    <string name="profile_sign_out_button">sign out</string>
 </resources>
