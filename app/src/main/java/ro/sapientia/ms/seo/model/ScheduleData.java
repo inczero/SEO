@@ -1,4 +1,4 @@
-package ro.sapientia.ms.seo;
+package ro.sapientia.ms.seo.model;
 
 //This class is for the ScheduleFragment
 public class ScheduleData {

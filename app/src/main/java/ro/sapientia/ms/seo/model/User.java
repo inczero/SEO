@@ -1,4 +1,4 @@
-package ro.sapientia.ms.seo;
+package ro.sapientia.ms.seo.model;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package ro.sapientia.ms.seo;
+package ro.sapientia.ms.seo.fragment;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
+
+import ro.sapientia.ms.seo.R;
+import ro.sapientia.ms.seo.model.SmartOutlet;
 
 public class SmartOutletsListAdapter extends RecyclerView.Adapter<SmartOutletsListAdapter.SmartOutletViewHolder> {
     private List<SmartOutlet> mSmartOutlets;

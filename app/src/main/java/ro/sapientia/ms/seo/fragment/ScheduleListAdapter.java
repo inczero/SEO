@@ -1,4 +1,4 @@
-package ro.sapientia.ms.seo;
+package ro.sapientia.ms.seo.fragment;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.text.DateFormat;
-import java.text.FieldPosition;
-import java.text.ParsePosition;
-import java.util.Date;
 import java.util.List;
+
+import ro.sapientia.ms.seo.R;
+import ro.sapientia.ms.seo.model.ScheduleData;
 
 public class ScheduleListAdapter extends RecyclerView.Adapter<ScheduleListAdapter.ScheduleViewHolder> {
     private List<ScheduleData> mScheduleData;

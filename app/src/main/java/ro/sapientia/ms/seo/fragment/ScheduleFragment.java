@@ -1,4 +1,4 @@
-package ro.sapientia.ms.seo;
+package ro.sapientia.ms.seo.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,6 +12,10 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import ro.sapientia.ms.seo.model.OperatingDate;
+import ro.sapientia.ms.seo.R;
+import ro.sapientia.ms.seo.model.ScheduleData;
 
 public class ScheduleFragment extends Fragment implements ScheduleListAdapter.ListItemClickListener{
 

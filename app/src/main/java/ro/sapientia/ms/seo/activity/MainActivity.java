@@ -1,4 +1,4 @@
-package ro.sapientia.ms.seo;
+package ro.sapientia.ms.seo.activity;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -6,6 +6,11 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+
+import ro.sapientia.ms.seo.fragment.ProfileFragment;
+import ro.sapientia.ms.seo.R;
+import ro.sapientia.ms.seo.fragment.ScheduleFragment;
+import ro.sapientia.ms.seo.fragment.SmartOutletsFragment;
 
 public class MainActivity extends AppCompatActivity {
 

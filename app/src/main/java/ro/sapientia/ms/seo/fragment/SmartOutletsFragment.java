@@ -1,4 +1,4 @@
-package ro.sapientia.ms.seo;
+package ro.sapientia.ms.seo.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,6 +11,9 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import ro.sapientia.ms.seo.R;
+import ro.sapientia.ms.seo.model.SmartOutlet;
 
 public class SmartOutletsFragment extends Fragment implements SmartOutletsListAdapter.ListItemClickListener {
 

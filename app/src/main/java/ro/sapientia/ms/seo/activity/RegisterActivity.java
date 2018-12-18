@@ -1,4 +1,4 @@
-package ro.sapientia.ms.seo;
+package ro.sapientia.ms.seo.activity;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -19,6 +19,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+
+import ro.sapientia.ms.seo.R;
+import ro.sapientia.ms.seo.model.SmartOutlet;
+import ro.sapientia.ms.seo.model.User;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -122,11 +126,8 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 });
-
             }
         });
-
-
     }
 
     @Override
