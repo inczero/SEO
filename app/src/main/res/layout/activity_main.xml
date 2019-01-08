@@ -20,7 +20,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:background="@color/colorPrimary"
         app:menu="@menu/bottom_navigation"
-        app:itemIconTint="@color/colorBackground"
-        app:itemTextColor="@color/colorBackground" />
+        app:itemIconTint="@drawable/bottom_nav_item_color_state"
+        app:itemTextColor="@drawable/bottom_nav_item_color_state" />
 
 </android.support.constraint.ConstraintLayout>
