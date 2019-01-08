@@ -1,80 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="110dp"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:orientation="horizontal">
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    card_view:cardCornerRadius="5dp"
+    card_view:cardElevation="3dp"
+    card_view:cardUseCompatPadding="true">
     <LinearLayout
-        android:layout_width="50dp"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/schedule_list_name_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="3dp"
-            android:gravity="top"
-            android:text="@string/schedule_list_field_name"/>
-
-        <TextView
-            android:id="@+id/schedule_list_start_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="3dp"
-            android:gravity="center_vertical"
-            android:text="@string/schedule_list_field_start"/>
-
-        <TextView
-            android:id="@+id/schedule_list_end_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="3dp"
-            android:gravity="center_vertical"
-            android:text="@string/schedule_list_field_end"/>
-
-        <TextView
-            android:id="@+id/schedule_list_operation_time_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="3dp"
-            android:gravity="bottom"
-            android:text="@string/schedule_list_field_operation_time"/>
-
-    </LinearLayout>
-
-    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/schedule_list_name_value_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="3dp"
-            android:gravity="top" />
+            <TextView
+                android:id="@+id/schedule_list_name_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:gravity="top"
+                android:text="@string/schedule_list_field_name"/>
 
-        <TextView
-            android:id="@+id/schedule_list_start_value_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="3dp"
-            android:gravity="center_vertical" />
+            <TextView
+                android:id="@+id/schedule_list_start_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:gravity="center_vertical"
+                android:text="@string/schedule_list_field_start"/>
 
-        <TextView
-            android:id="@+id/schedule_list_end_value_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="3dp"
-            android:gravity="center_vertical" />
+            <TextView
+                android:id="@+id/schedule_list_end_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:gravity="center_vertical"
+                android:text="@string/schedule_list_field_end"/>
 
-        <TextView
-            android:id="@+id/schedule_list_operation_time_value_text_view"
+            <TextView
+                android:id="@+id/schedule_list_operation_time_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:gravity="bottom"
+                android:text="@string/schedule_list_field_operation_time"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="3dp"
-            android:gravity="bottom" />
+            android:layout_height="100dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/schedule_list_name_value_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:gravity="top" />
+
+            <TextView
+                android:id="@+id/schedule_list_start_value_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/schedule_list_end_value_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/schedule_list_operation_time_value_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:gravity="bottom" />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</android.support.v7.widget.CardView>
