@@ -25,6 +25,10 @@ dependencies {
     implementation 'com.android.support:design:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation 'com.android.support:cardview-v7:26.1.0'
+    implementation 'com.google.code.gson:gson:2.8.2'
+
+    //graph view implementation
+    implementation 'com.jjoe64:graphview:4.1.0'
 
     implementation 'com.google.firebase:firebase-core:16.0.6'
     implementation 'com.google.firebase:firebase-auth:16.1.0'

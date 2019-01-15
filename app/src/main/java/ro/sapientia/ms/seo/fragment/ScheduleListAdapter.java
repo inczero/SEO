@@ -7,35 +7,31 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import ro.sapientia.ms.seo.R;
-import ro.sapientia.ms.seo.model.ScheduleData;
+import ro.sapientia.ms.seo.model.SmartOutlet;
 
 public class ScheduleListAdapter extends RecyclerView.Adapter<ScheduleListAdapter.ScheduleViewHolder> {
-    private List<ScheduleData> mScheduleData;
+    private List<SmartOutlet> mScheduleData;
     private ListItemClickListener mOnClickListener;
+    private List<SmartOutlet> adapterData;
 
-    ScheduleListAdapter(List<ScheduleData> scheduleData, ListItemClickListener onClickListener) {
+    ScheduleListAdapter(List<SmartOutlet> scheduleData, ListItemClickListener onClickListener) {
         mScheduleData = scheduleData;
         mOnClickListener = onClickListener;
+        adapterData = new ArrayList<>();
+        processDataForTodaySchedule();
     }
-
-    //TODO : Make a sign for the user is the operation is started.
 
     @Override
     public void onBindViewHolder(ScheduleListAdapter.ScheduleViewHolder holder, int position) {
-        holder.name.setText(mScheduleData.get(position).getName());
-
-        //setting the date format
-        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT);
-
-        holder.startDate.setText(dateFormat.format(mScheduleData.get(position).getOperationDate().getStartDate()));
-        holder.endDate.setText(dateFormat.format(mScheduleData.get(position).getOperationDate().getFinishDate()));
-
-        //TODO : Change operation time to status
-        holder.operationTime.setText("30 minutes");
+        holder.name.setText(adapterData.get(position).getName());
+        holder.startDate.setText(adapterData.get(position).getToday().getStartingHour() + ":00");
+        String stringHolder = "";
+        stringHolder += adapterData.get(position).getToday().getOperationDuration();
+        holder.operationTime.setText(stringHolder + " minutes");
     }
 
     @NonNull
@@ -47,24 +43,30 @@ public class ScheduleListAdapter extends RecyclerView.Adapter<ScheduleListAdapte
 
     @Override
     public int getItemCount() {
-        return mScheduleData.size();
+        return adapterData.size();
     }
 
     interface ListItemClickListener {
         void onListItemClick(int clickedPosition);
     }
 
+    private void processDataForTodaySchedule() {
+        for (int i=0; i<mScheduleData.size(); i++) {
+            if (mScheduleData.get(i).getToday().isThisDaySet()) {
+                adapterData.add(mScheduleData.get(i));
+            }
+        }
+    }
+
     public class ScheduleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView name;
         private TextView startDate;
-        private TextView endDate;
         private TextView operationTime;
 
         ScheduleViewHolder(View v) {
             super(v);
             name = v.findViewById(R.id.schedule_list_name_value_text_view);
             startDate = v.findViewById(R.id.schedule_list_start_value_text_view);
-            endDate = v.findViewById(R.id.schedule_list_end_value_text_view);
             operationTime = v.findViewById(R.id.schedule_list_operation_time_value_text_view);
 
             v.setOnClickListener(this);

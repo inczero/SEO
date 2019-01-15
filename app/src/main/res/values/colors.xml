@@ -9,4 +9,9 @@
     <color name="colorSecondaryText">#757575</color>
     <color name="colorIcons">#212121</color>
     <color name="colorDivider">#BDBDBD</color>
+
+    <!--Smart outlet status colors-->
+    <color name="colorSmartOutletOff">#d50000</color>
+    <color name="colorSmartOutletOn">#1b5e20</color>
+    <color name="colorSmartOutletNoInformation">#9e9e9e</color>
 </resources>

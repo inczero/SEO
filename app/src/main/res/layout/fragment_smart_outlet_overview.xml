@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/smart_outlet_overview_card_view"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            card_view:cardCornerRadius="80dp"
+            card_view:cardElevation="5dp"
+            card_view:cardUseCompatPadding="true"
+            app:cardBackgroundColor="@color/colorSmartOutletNoInformation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            android:shape="ring"
+            android:thicknessRatio="1.9">
+
+            <ImageView
+                android:id="@+id/smart_outlet_picture"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                app:srcCompat="@drawable/ic_smart_outlet_24dp" />
+
+        </android.support.v7.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/smart_outlet_overview_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/smart_outlet_overview_card_view">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/smart_outlet_overview_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimaryText"
+                    android:text="@string/smart_outlet_overview_id"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="top"/>
+
+                <TextView
+                    android:id="@+id/smart_outlet_overview_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimaryText"
+                    android:text="@string/smart_outlet_overview_name"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="bottom"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/smart_outlet_overview_id_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimaryText"
+                    android:text="@string/smart_outlet_overview_error"
+                    android:fontFamily="sans-serif"
+                    android:gravity="top"
+                    android:layout_marginStart="6dp"/>
+
+                <TextView
+                    android:id="@+id/smart_outlet_overview_name_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimaryText"
+                    android:text="@string/smart_outlet_overview_error"
+                    android:fontFamily="sans-serif"
+                    android:gravity="bottom"
+                    android:layout_marginStart="6dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/smart_outlet_overview_linear_layout_week"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/smart_outlet_overview_linear_layout">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimaryText"
+                    android:text="@string/smart_outlet_overview_monday"
+                    android:fontFamily="sans-serif-thin"
+                    android:layout_marginEnd="6dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimaryText"
+                    android:text="@string/smart_outlet_overview_tuesday"
+                    android:fontFamily="sans-serif-thin"
+                    android:layout_marginEnd="6dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimaryText"
+                    android:text="@string/smart_outlet_overview_wednesday"
+                    android:fontFamily="sans-serif-thin"
+                    android:layout_marginEnd="6dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimaryText"
+                    android:text="@string/smart_outlet_overview_thursday"
+                    android:fontFamily="sans-serif-thin"
+                    android:layout_marginEnd="6dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimaryText"
+                    android:text="@string/smart_outlet_overview_friday"
+                    android:fontFamily="sans-serif-thin"
+                    android:layout_marginEnd="6dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimaryText"
+                    android:text="@string/smart_outlet_overview_saturday"
+                    android:fontFamily="sans-serif-thin"
+                    android:layout_marginEnd="6dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimaryText"
+                    android:text="@string/smart_outlet_overview_sunday"
+                    android:fontFamily="sans-serif-thin"
+                    android:layout_marginEnd="6dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/smart_outlet_overview_monday_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimaryText"
+                    android:text="@string/smart_outlet_overview_no_operation_set"
+                    android:fontFamily="sans-serif"
+                    android:layout_marginEnd="6dp"/>
+
+                <TextView
+                    android:id="@+id/smart_outlet_overview_tuesday_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimaryText"
+                    android:text="@string/smart_outlet_overview_no_operation_set"
+                    android:fontFamily="sans-serif"
+                    android:layout_marginEnd="6dp"/>
+
+                <TextView
+                    android:id="@+id/smart_outlet_overview_wednesday_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimaryText"
+                    android:text="@string/smart_outlet_overview_no_operation_set"
+                    android:fontFamily="sans-serif"
+                    android:layout_marginEnd="6dp"/>
+
+                <TextView
+                    android:id="@+id/smart_outlet_overview_thursday_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimaryText"
+                    android:text="@string/smart_outlet_overview_no_operation_set"
+                    android:fontFamily="sans-serif"
+                    android:layout_marginEnd="6dp"/>
+                <TextView
+                    android:id="@+id/smart_outlet_overview_friday_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimaryText"
+                    android:text="@string/smart_outlet_overview_no_operation_set"
+                    android:fontFamily="sans-serif"
+                    android:layout_marginEnd="6dp"/>
+
+                <TextView
+                    android:id="@+id/smart_outlet_overview_saturday_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimaryText"
+                    android:text="@string/smart_outlet_overview_no_operation_set"
+                    android:fontFamily="sans-serif"
+                    android:layout_marginEnd="6dp"/>
+
+                <TextView
+                    android:id="@+id/smart_outlet_overview_sunday_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimaryText"
+                    android:text="@string/smart_outlet_overview_no_operation_set"
+                    android:fontFamily="sans-serif"
+                    android:layout_marginEnd="6dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.jjoe64.graphview.GraphView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_margin="16dp"
+            app:layout_constraintTop_toBottomOf="@id/smart_outlet_overview_linear_layout_week"
+            android:id="@+id/smart_outlet_overview_consumption_graph" />
+
+        <Button
+            android:id="@+id/smart_outlet_overview_add_operation_button"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/smart_outlet_overview_add_operation_button"
+            android:fontFamily="sans-serif"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/smart_outlet_overview_consumption_graph" />
+
+        <Button
+            android:id="@+id/smart_outlet_overview_delete_operation_button"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/smart_outlet_overview_delete_operation_button"
+            android:fontFamily="sans-serif"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/smart_outlet_overview_add_operation_button" />
+
+        <Button
+            android:id="@+id/smart_outlet_overview_delete_device_button"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/smart_outlet_overview_delete_device_button"
+            android:fontFamily="sans-serif"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/smart_outlet_overview_delete_operation_button"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

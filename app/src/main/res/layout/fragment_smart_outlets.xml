@@ -13,4 +13,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
+    <TextView
+        android:id="@+id/smart_outlets_no_outlets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:layout_margin="16dp"
+        android:fontFamily="sans-serif-thin"
+        android:text="@string/smart_outlets_no_device"
+        android:textColor="@color/colorSecondaryText"
+        android:textSize="31sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textAlignment="center"/>
+
 </android.support.constraint.ConstraintLayout>

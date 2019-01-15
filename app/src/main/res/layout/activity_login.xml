@@ -57,13 +57,12 @@
         app:layout_constraintTop_toBottomOf="@+id/password_input" />
 
     <Button
-        android:id="@+id/phone_login_button"
+        android:id="@+id/forgot_password_button"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:background="@color/colorPrimary"
-        android:textStyle=""
-        android:text="@string/login_button_phone_number"
+        android:text="@string/forgot_password_button"
         android:fontFamily="sans-serif"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -81,7 +80,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone_login_button"
+        app:layout_constraintTop_toBottomOf="@+id/forgot_password_button"
         android:fontFamily="sans-serif-thin" />
 
 </android.support.constraint.ConstraintLayout>

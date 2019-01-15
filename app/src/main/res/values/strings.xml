@@ -5,7 +5,7 @@
     <string name="login_email_hint">email</string>
     <string name="login_password_hint">password</string>
     <string name="login_button_email">login</string>
-    <string name="login_button_phone_number">login with phone</string>
+    <string name="forgot_password_button">forgot password</string>
     <string name="sign_up_text">If you\'re not registered yet, sign up!</string>
 
     <!--No network layout(Login activity)-->
@@ -22,22 +22,62 @@
 
     <!--Bottom navigation menu strings-->
     <string name="bottom_nav_outlets">Smart outlets</string>
-    <string name="bottom_nav_profile">Profile</string>
-    <string name="bottom_nav_schedule">Schedule</string>
+    <string name="bottom_nav_profile">Manage</string>
+    <string name="bottom_nav_schedule">Today\'s schedule</string>
 
     <!--Smart Outlets status in fragment -->
-    <string name="smart_outlet_status_turned_on">Turned on</string>
-    <string name="smart_outlet_status_stand_by">Stand by</string>
+    <string name="smart_outlet_status_turned_on">On</string>
+    <string name="smart_outlet_status_stand_by">Off</string>
+    <string name="smart_outlets_no_device">It\`s a bit empty here, isn\'t it\? You can add your
+        devices under Manage button in the bottom right corner!</string>
 
     <!--Schedule list item field names in fragment-->
     <string name="schedule_list_field_name">Name:</string>
     <string name="schedule_list_field_start">Start:</string>
-    <string name="schedule_list_field_end">End:</string>
     <string name="schedule_list_field_operation_time">Time:</string>
+    <string name="schedule_no_operation">There isn\'t any scheduled operation for today!</string>
 
     <!--Profile fragment button strings-->
     <string name="profile_change_email_button">change email</string>
     <string name="profile_change_password_button">change password</string>
     <string name="profile_add_new_outlet_button">add new outlet</string>
     <string name="profile_sign_out_button">sign out</string>
+
+    <!--Smart outlet overview fragment-->
+    <string name="smart_outlet_overview_id">ID:</string>
+    <string name="smart_outlet_overview_name">Name:</string>
+    <string name="smart_outlet_overview_error">error</string>
+    <string name="smart_outlet_overview_monday">Monday</string>
+    <string name="smart_outlet_overview_tuesday">Tuesday</string>
+    <string name="smart_outlet_overview_wednesday">Wednesday</string>
+    <string name="smart_outlet_overview_thursday">Thursday</string>
+    <string name="smart_outlet_overview_friday">Friday</string>
+    <string name="smart_outlet_overview_saturday">Saturday</string>
+    <string name="smart_outlet_overview_sunday">Sunday</string>
+    <string name="smart_outlet_overview_no_operation_set">No operation set</string>
+
+    <string name="smart_outlet_overview_add_operation_button">Add operation date</string>
+    <string name="smart_outlet_overview_delete_operation_button">Delete operation date</string>
+    <string name="smart_outlet_overview_delete_device_button">Delete device</string>
+
+    <!--Smart outlet overview fragment add operation alert dialog-->
+    <string name="smart_outlet_overview_add_operation_starting_hour">starting hour(0\-23)</string>
+    <string name="smart_outlet_overview_add_operation_duration">duration(10\-59 minutes)</string>
+    <string name="smart_outlet_overview_add_operation_day_of_week">day of week(1\-7)</string>
+
+    <!--Change user password-->
+    <string name="change_pass_user">Change Password</string>
+    <string name="old_pass_user">Old Password</string>
+    <string name="new_pass_user">New Password</string>
+    <string name="confirm_pass_user">Confirm Password</string>
+    <string name="current_pass_user">Current Password</string>
+    <string name="error_pass_not_match">Passwords do not match!</string>
+    <string name="error_pass_length">The password must be at least 8 characters long!</string>
+    <string name="pass_changed">Password change successful!</string>
+    <string name="error_change_message">Please fill the empty fields!</string>
+    <string name="submit">Submit</string>
+
+    <!--Add new device strings-->
+    <string name="add_new_device_id">identification number</string>
+    <string name="add_new_device_name">name</string>
 </resources>

@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
             final EditText emailEditText = findViewById(R.id.email_input);
             final EditText passwordEditText = findViewById(R.id.password_input);
             Button loginButton = findViewById(R.id.email_login_button);
-            Button loginWithPhoneButton = findViewById(R.id.phone_login_button);
+            Button forgotPasswordButton = findViewById(R.id.forgot_password_button);
             TextView signUpTextView = findViewById(R.id.sign_up_text_view);
 
             loginButton.setOnClickListener(new View.OnClickListener() {
@@ -87,9 +87,11 @@ public class LoginActivity extends AppCompatActivity {
                                 try {
                                     throw task.getException();
                                 } catch (FirebaseAuthInvalidUserException e) {
-                                    Toast.makeText(getApplicationContext(), "Invalid user!", Toast.LENGTH_SHORT).show();
+                                    View v = findViewById(android.R.id.content);
+                                    Snackbar.make(v, "Invalid user!", Snackbar.LENGTH_SHORT).show();
                                 } catch (Exception e) {
-                                    Toast.makeText(getApplicationContext(), "Login failed!", Toast.LENGTH_SHORT).show();
+                                    View v = findViewById(android.R.id.content);
+                                    Snackbar.make(v, "Login failed!", Snackbar.LENGTH_SHORT).show();
                                 }
                             }
                         }
@@ -97,13 +99,34 @@ public class LoginActivity extends AppCompatActivity {
                 }
             });
 
-            loginWithPhoneButton.setOnClickListener(new View.OnClickListener() {
+            forgotPasswordButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-//                    TODO: Change this button function to forgot password!!
-                    //Toast.makeText(getApplicationContext(), "Login with phone number is currently not implemented!", Toast.LENGTH_SHORT).show();
-                    View v = findViewById(android.R.id.content);
-                    Snackbar.make(v, "Login with phone number is currently not implemented!", Snackbar.LENGTH_SHORT).show();
+                    String email = emailEditText.getText().toString();
+
+                    if (email.isEmpty()) {
+                        emailEditText.setError("Please enter your email address!");
+                        emailEditText.requestFocus();
+                        return;
+                    }
+
+                    if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                        emailEditText.setError("Invalid email address!");
+                        emailEditText.requestFocus();
+                        return;
+                    }
+
+                    FirebaseAuth.getInstance().sendPasswordResetEmail(email)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        View v = findViewById(android.R.id.content);
+                                        Snackbar.make(v, "Password reset email sent!", Snackbar.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+
                 }
             });
 

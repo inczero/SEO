@@ -8,62 +8,75 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import ro.sapientia.ms.seo.model.OperatingDate;
 import ro.sapientia.ms.seo.R;
-import ro.sapientia.ms.seo.model.ScheduleData;
+import ro.sapientia.ms.seo.activity.MainActivity;
+import ro.sapientia.ms.seo.model.SmartOutlet;
+import ro.sapientia.ms.seo.model.WeekDay;
 
 public class ScheduleFragment extends Fragment implements ScheduleListAdapter.ListItemClickListener{
 
-    private List<ScheduleData> scheduleData;
+    private List<SmartOutlet> scheduleData;
+
+    private RecyclerView mRecyclerView;
+    private TextView emptyViewText;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_schedule, container, false);
 
-        RecyclerView mRecylerView = view.findViewById(R.id.schedule_recycler_view);
+        mRecyclerView = view.findViewById(R.id.schedule_recycler_view);
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
-        mRecylerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
-        scheduleData = new ArrayList<>();
-        fillScheduleData();
+        MainActivity mainActivity = (MainActivity) getActivity();
+        scheduleData = mainActivity.getAllSmartOutletList();
 
         RecyclerView.Adapter mAdapter = new ScheduleListAdapter(scheduleData, this);
-        mRecylerView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(mAdapter);
 
-        //TODO : ADD EMPTY VIEW!
+        emptyViewText = view.findViewById(R.id.schedule_no_operations);
 
         return view;
     }
 
     @Override
-    public void onListItemClick(int clickedPosition) {
-        //TODO : Schedule fragment onClick.
+    public void onResume() {
+        super.onResume();
+
+        emptyViewIfNoOperation();
     }
 
-    //function for test data generation
-    private void fillScheduleData() {
-        ScheduleData schedule1 = new ScheduleData("Kitchen 1", new OperatingDate(new Date(), new Date(), true));
-        ScheduleData schedule2 = new ScheduleData("Kitchen 2", new OperatingDate(new Date(), new Date(), true));
-        ScheduleData schedule3 = new ScheduleData("Bedroom 1", new OperatingDate(new Date(), new Date(), false));
-        ScheduleData schedule4 = new ScheduleData("Kitchen 3", new OperatingDate(new Date(), new Date(), true));
-        ScheduleData schedule5 = new ScheduleData("Living room 1", new OperatingDate(new Date(), new Date(), false));
+    private boolean areThereAnyOperationsToday() {
+        for (int i=0; i<scheduleData.size(); i++) {
+            if (scheduleData.get(i).getToday().isThisDaySet()) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-        scheduleData.add(schedule1);
-        scheduleData.add(schedule2);
-        scheduleData.add(schedule3);
-        scheduleData.add(schedule4);
-        scheduleData.add(schedule5);
-        scheduleData.add(schedule1);
-        scheduleData.add(schedule2);
-        scheduleData.add(schedule3);
-        scheduleData.add(schedule4);
-        scheduleData.add(schedule5);
+
+
+    private void emptyViewIfNoOperation() {
+        if (!areThereAnyOperationsToday()) {
+            mRecyclerView.setVisibility(View.GONE);
+            emptyViewText.setVisibility(View.VISIBLE);
+        } else {
+            mRecyclerView.setVisibility(View.VISIBLE);
+            emptyViewText.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void onListItemClick(int clickedPosition) {
+        //TODO : Schedule fragment onClick.
     }
 }
