@@ -66,11 +66,11 @@
     <string name="smart_outlet_overview_add_operation_day_of_week">day of week(1\-7)</string>
 
     <!--Change user password-->
-    <string name="change_pass_user">Change Password</string>
-    <string name="old_pass_user">Old Password</string>
-    <string name="new_pass_user">New Password</string>
-    <string name="confirm_pass_user">Confirm Password</string>
-    <string name="current_pass_user">Current Password</string>
+    <string name="change_pass_user">change password</string>
+    <string name="old_pass_user">old password</string>
+    <string name="new_pass_user">new password</string>
+    <string name="confirm_pass_user">confirm password</string>
+    <string name="current_pass_user">current password</string>
     <string name="error_pass_not_match">Passwords do not match!</string>
     <string name="error_pass_length">The password must be at least 8 characters long!</string>
     <string name="pass_changed">Password change successful!</string>

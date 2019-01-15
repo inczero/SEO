@@ -81,31 +81,16 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SmartOutletsFragment()).commit();
     }
 
-    //for debugging purposes
-//    private void fillUpList() {
-//        SmartOutlet outlet1 = new SmartOutlet("12345", "Kitchen outlet", true);
-//        SmartOutlet outlet2 = new SmartOutlet("12346", "Bedroom1 outlet", true);
-//        SmartOutlet outlet3 = new SmartOutlet("12347", "Bedroom2 outlet", false);
-//
-//        outlet1.getWeekDay(0).setStartingHourAndMinute(9, 0);
-//        outlet1.getWeekDay(0).setOperationDuration(30);
-//        outlet1.getWeekDay(0).setThisDay(true);
-//        outlet1.addConsumptionData(20);
-//        outlet1.addConsumptionData(15);
-//        outlet1.addConsumptionData(3);
-//        outlet1.addConsumptionData(12);
-//
-//        userData.getOwnedProducts().add(outlet1);
-//        userData.getOwnedProducts().add(outlet2);
-//        userData.getOwnedProducts().add(outlet3);
-//    }
-
-    //functions for fragment data retrieval
+    //functions for fragment data retrieval and firebase update
     public ArrayList<SmartOutlet> getAllSmartOutletList() {
         return userData.getOwnedProducts();
     }
 
     public SmartOutlet getSmartOutlet(int i) {
         return userData.getOwnedProducts().get(i);
+    }
+
+    public void updateFirebaseData() {
+        mDatabase.setValue(userData);
     }
 }

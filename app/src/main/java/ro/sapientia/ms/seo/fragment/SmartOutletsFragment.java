@@ -73,6 +73,8 @@ public class SmartOutletsFragment extends Fragment implements SmartOutletsListAd
             if (bundle.containsKey("deleteSmartOutletUnderThisIndex")) {
                 int index = bundle.getInt("deleteSmartOutletUnderThisIndex");
                 smartOutlets.remove(index);
+                MainActivity main = (MainActivity) getActivity();
+                main.updateFirebaseData();
             }
         }
 

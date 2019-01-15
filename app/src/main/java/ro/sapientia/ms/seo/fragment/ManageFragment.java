@@ -1,6 +1,7 @@
 package ro.sapientia.ms.seo.fragment;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -21,6 +22,7 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 
 import ro.sapientia.ms.seo.R;
+import ro.sapientia.ms.seo.activity.LoginActivity;
 import ro.sapientia.ms.seo.activity.MainActivity;
 import ro.sapientia.ms.seo.model.SmartOutlet;
 
@@ -41,6 +43,7 @@ public class ManageFragment extends Fragment {
 //        changeEmailButton.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
+//
 ////            TODO: OnClick function of change email
 //            }
 //        });
@@ -54,7 +57,6 @@ public class ManageFragment extends Fragment {
                 final EditText newPass = mView.findViewById(R.id.new_pass_user);
                 final EditText confirmPass = mView.findViewById(R.id.confirm_pass_user);
                 Button submit = mView.findViewById(R.id.Submit);
-
 
                 mBuilder.setView(mView);
                 final AlertDialog dialog = mBuilder.create();
@@ -104,9 +106,7 @@ public class ManageFragment extends Fragment {
                             dialog.dismiss();
                         }
                         else {
-                            Toast.makeText(getActivity(),
-                                    R.string.error_change_message,
-                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), R.string.error_change_message, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -118,10 +118,9 @@ public class ManageFragment extends Fragment {
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 View dialogView = getLayoutInflater().inflate(R.layout.temporary_fragment_new_device_registration, null);
-                builder.setTitle("Add new outlet");
                 final EditText id = dialogView.findViewById(R.id.add_new_device_id_edit_text);
                 final EditText name = dialogView.findViewById(R.id.add_new_device_name_edit_text);
-
+                builder.setView(dialogView);
                 builder.setPositiveButton("ADD", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -135,6 +134,7 @@ public class ManageFragment extends Fragment {
 
                         MainActivity main = (MainActivity) getActivity();
                         main.getAllSmartOutletList().add(new SmartOutlet(idString, nameString));
+                        main.updateFirebaseData();
                     }
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -154,7 +154,7 @@ public class ManageFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                getActivity().finish();
+                startActivity(new Intent(getActivity(), LoginActivity.class));
             }
         });
 

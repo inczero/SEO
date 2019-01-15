@@ -71,7 +71,7 @@ public class SmartOutletOverviewFragment extends Fragment {
         indexOfSmartOutlet = getArguments().getInt("indexOfSmartOutlet");
 
         //retrieving smart outlet data
-        MainActivity main = (MainActivity) getActivity();
+        final MainActivity main = (MainActivity) getActivity();
         smartOutlet = main.getSmartOutlet(indexOfSmartOutlet);
 
         //setting the id and name field
@@ -141,6 +141,8 @@ public class SmartOutletOverviewFragment extends Fragment {
                         smartOutlet.getWeekDay(dow-1).setOperationDuration(dm);
                         smartOutlet.getWeekDay(dow-1).setThisDay(true);
                         setWeekScheduleTextViews();
+
+                        main.updateFirebaseData();
                     }
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -188,6 +190,7 @@ public class SmartOutletOverviewFragment extends Fragment {
 
                         smartOutlet.getWeekDay(dow-1).setThisDay(false);
                         setWeekScheduleTextViews();
+                        main.updateFirebaseData();
                     }
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -198,7 +201,6 @@ public class SmartOutletOverviewFragment extends Fragment {
                 });
 
                 builder.show();
-
             }
         });
 

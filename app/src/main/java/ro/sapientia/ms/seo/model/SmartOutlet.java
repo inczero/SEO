@@ -24,6 +24,15 @@ public class SmartOutlet {
         consumptionData = new TreeMap<>();
     }
 
+    public SmartOutlet() {
+        status = false;
+        weekSchedule = new ArrayList<>(7);
+        for (int i=0; i<7; i++) {
+            weekSchedule.add(new WeekDay());
+        }
+        consumptionData = new TreeMap<>();
+    }
+
     public String getIdentificationNumber() {
         return identificationNumber;
     }
