@@ -40,14 +40,6 @@ public class ManageFragment extends Fragment {
         Button addNewOutletButton = view.findViewById(R.id.add_new_outlet_button);
         Button signOutButton = view.findViewById(R.id.sign_out_button);
 
-//        changeEmailButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-////            TODO: OnClick function of change email
-//            }
-//        });
-
         changePasswordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

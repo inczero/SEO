@@ -46,6 +46,7 @@
     <!--Smart outlet overview fragment-->
     <string name="smart_outlet_overview_id">ID:</string>
     <string name="smart_outlet_overview_name">Name:</string>
+    <string name="smart_outlet_overview_new_name">new name</string>
     <string name="smart_outlet_overview_error">error</string>
     <string name="smart_outlet_overview_monday">Monday</string>
     <string name="smart_outlet_overview_tuesday">Tuesday</string>

@@ -16,7 +16,7 @@ import ro.sapientia.ms.seo.R;
 import ro.sapientia.ms.seo.activity.MainActivity;
 import ro.sapientia.ms.seo.model.SmartOutlet;
 
-public class ScheduleFragment extends Fragment implements ScheduleListAdapter.ListItemClickListener{
+public class ScheduleFragment extends Fragment{
 
     private List<SmartOutlet> scheduleData;
 
@@ -36,7 +36,7 @@ public class ScheduleFragment extends Fragment implements ScheduleListAdapter.Li
         MainActivity mainActivity = (MainActivity) getActivity();
         scheduleData = mainActivity.getAllSmartOutletList();
 
-        RecyclerView.Adapter mAdapter = new ScheduleListAdapter(scheduleData, this);
+        RecyclerView.Adapter mAdapter = new ScheduleListAdapter(scheduleData);
         mRecyclerView.setAdapter(mAdapter);
 
         emptyViewText = view.findViewById(R.id.schedule_no_operations);
@@ -70,10 +70,5 @@ public class ScheduleFragment extends Fragment implements ScheduleListAdapter.Li
             mRecyclerView.setVisibility(View.VISIBLE);
             emptyViewText.setVisibility(View.GONE);
         }
-    }
-
-    @Override
-    public void onListItemClick(int clickedPosition) {
-        //TODO : Schedule fragment onClick -> Open overview of outlet
     }
 }

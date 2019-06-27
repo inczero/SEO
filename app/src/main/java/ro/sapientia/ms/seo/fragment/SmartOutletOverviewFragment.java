@@ -68,7 +68,7 @@ public class SmartOutletOverviewFragment extends Fragment {
         //initializing resources
         final CardView smartOutletPicture = view.findViewById(R.id.smart_outlet_overview_card_view);
         TextView idTextView = view.findViewById(R.id.smart_outlet_overview_id_text);
-        TextView nameTextView = view.findViewById(R.id.smart_outlet_overview_name_text);
+        final TextView nameTextView = view.findViewById(R.id.smart_outlet_overview_name_text);
         mondayOperation = view.findViewById(R.id.smart_outlet_overview_monday_text);
         tuesdayOperation = view.findViewById(R.id.smart_outlet_overview_tuesday_text);
         wednesdayOperation = view.findViewById(R.id.smart_outlet_overview_wednesday_text);
@@ -155,6 +155,42 @@ public class SmartOutletOverviewFragment extends Fragment {
                     smartOutletPicture.setCardBackgroundColor(getResources().getColor(R.color.colorSmartOutletOn));
                     main.switchOutlet(indexOfSmartOutlet, true);
                 }
+            }
+        });
+
+        nameTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle("Change smart outlet name");
+                View dialogView = getLayoutInflater().inflate(R.layout.fragment_smart_outlet_overview_name_change, null);
+                builder.setView(dialogView);
+
+                final EditText newName = dialogView.findViewById(R.id.new_smart_outlet_name);
+
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String newNameString = newName.getText().toString();
+
+                        if (newNameString.isEmpty()) {
+                            Toast.makeText(getActivity(), "Please fill out the new name field!", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        main.setSmartOutletName(indexOfSmartOutlet, newNameString);
+                        smartOutlet.setName(newNameString);
+                        nameTextView.setText(newNameString);
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                builder.show();
             }
         });
 

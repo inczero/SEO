@@ -19,12 +19,10 @@ import ro.sapientia.ms.seo.model.SmartOutlet;
 
 public class ScheduleListAdapter extends RecyclerView.Adapter<ScheduleListAdapter.ScheduleViewHolder> {
     private List<SmartOutlet> mScheduleData;
-    private ListItemClickListener mOnClickListener;
     private List<SmartOutlet> adapterData;
 
-    ScheduleListAdapter(List<SmartOutlet> scheduleData, ListItemClickListener onClickListener) {
+    ScheduleListAdapter(List<SmartOutlet> scheduleData) {
         mScheduleData = scheduleData;
-        mOnClickListener = onClickListener;
         adapterData = new ArrayList<>();
         processDataForTodaySchedule();
     }
@@ -58,10 +56,6 @@ public class ScheduleListAdapter extends RecyclerView.Adapter<ScheduleListAdapte
         return adapterData.size();
     }
 
-    interface ListItemClickListener {
-        void onListItemClick(int clickedPosition);
-    }
-
     private void processDataForTodaySchedule() {
         for (int i=0; i<mScheduleData.size(); i++) {
             if (mScheduleData.get(i).operationToday().isThisDaySet()) {
@@ -70,7 +64,7 @@ public class ScheduleListAdapter extends RecyclerView.Adapter<ScheduleListAdapte
         }
     }
 
-    public class ScheduleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ScheduleViewHolder extends RecyclerView.ViewHolder {
         private TextView name;
         private TextView startDate;
         private TextView operationTime;
@@ -82,14 +76,6 @@ public class ScheduleListAdapter extends RecyclerView.Adapter<ScheduleListAdapte
             startDate = v.findViewById(R.id.schedule_list_start_value_text_view);
             operationTime = v.findViewById(R.id.schedule_list_operation_time_value_text_view);
             timeImage = v.findViewById(R.id.schedule_list_image_view);
-
-            v.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View view) {
-            int clickedPosition = getAdapterPosition();
-            mOnClickListener.onListItemClick(clickedPosition);
         }
     }
 }

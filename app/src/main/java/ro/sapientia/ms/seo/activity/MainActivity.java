@@ -188,6 +188,14 @@ public class MainActivity extends AppCompatActivity {
         return userId;
     }
 
-    //TODO: Add name change functionality to SmartOutlet (method+GUI)
+    public void setSmartOutletName(int numberOfOutlet, String name) {
+        try {
+            mDatabaseUserNode.child("ownedProducts").child(Integer.toString(numberOfOutlet)).
+                    child("name").setValue(name);
+        } catch(NullPointerException e) {
+            Toast.makeText(this, "Database error!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     //TODO: Implement WiFi config (class+methods+GUI)
 }
