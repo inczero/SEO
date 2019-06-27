@@ -9,6 +9,13 @@ public class WeekDay {
     private int operationDuration;
     private boolean isThisDaySet;
 
+    public WeekDay(int startingHour, int startingMinute, int operationDuration, boolean isThisDaySet) {
+        this.startingHour = startingHour;
+        this.startingMinute = startingMinute;
+        this.operationDuration = operationDuration;
+        this.isThisDaySet = isThisDaySet;
+    }
+
     public WeekDay() {
         isThisDaySet = false;
     }
@@ -29,9 +36,21 @@ public class WeekDay {
         return isThisDaySet;
     }
 
+    public void setStartingHour(int startingHour) {
+        this.startingHour = startingHour;
+    }
+
+    public void setStartingMinute(int startingMinute) {
+        this.startingMinute = startingMinute;
+    }
+
+    public void setThisDaySet(boolean thisDaySet) {
+        isThisDaySet = thisDaySet;
+    }
+
     public void setStartingHourAndMinute(int startingHour, int startingMinute) {
         this.startingHour = startingHour;
-        this.startingMinute =startingMinute;
+        this.startingMinute = startingMinute;
     }
 
     public void setOperationDuration(int operationDuration) {

@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -16,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import ro.sapientia.ms.seo.fragment.ManageFragment;
 import ro.sapientia.ms.seo.R;
@@ -23,12 +25,13 @@ import ro.sapientia.ms.seo.fragment.ScheduleFragment;
 import ro.sapientia.ms.seo.fragment.SmartOutletsFragment;
 import ro.sapientia.ms.seo.model.SmartOutlet;
 import ro.sapientia.ms.seo.model.User;
+import ro.sapientia.ms.seo.model.WeekDay;
 
 public class MainActivity extends AppCompatActivity {
 
     //Firebase attributes
     private FirebaseAuth mAuth;
-    private DatabaseReference mDatabase;
+    private DatabaseReference mDatabaseUserNode;
 
     private User userData;
 
@@ -41,9 +44,9 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         final FirebaseUser currentUser = mAuth.getCurrentUser();
-        mDatabase = FirebaseDatabase.getInstance().getReference("Users").child(currentUser.getUid());
+        mDatabaseUserNode = FirebaseDatabase.getInstance().getReference("Users").child(currentUser.getUid());
 
-        mDatabase.addValueEventListener(new ValueEventListener() {
+        mDatabaseUserNode.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 userData = dataSnapshot.getValue(User.class);
@@ -81,16 +84,110 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SmartOutletsFragment()).commit();
     }
 
+    //debug function
+    private void countWeekOperation(SmartOutlet smartOutlet) {
+        int counter = 0;
+        for (int i=0; i<7; i++) {
+            if (smartOutlet.getWeekDay(i).isThisDaySet()) {
+                counter++;
+            }
+        }
+        Toast.makeText(this, Integer.toString(counter), Toast.LENGTH_SHORT).show();
+    }
+
     //functions for fragment data retrieval and firebase update
     public ArrayList<SmartOutlet> getAllSmartOutletList() {
         return userData.getOwnedProducts();
     }
 
-    public SmartOutlet getSmartOutlet(int i) {
-        return userData.getOwnedProducts().get(i);
+    public SmartOutlet getSmartOutlet(int index) {
+        return userData.getSmartOutlet(index);
     }
 
     public void updateFirebaseData() {
-        mDatabase.setValue(userData);
+        mDatabaseUserNode.setValue(userData);
     }
+
+    public void getSchedule(int index) {
+        for (int day=0; day<7; day++) {
+            try {
+                final List<WeekDay> schedule = new ArrayList<WeekDay>(7);
+                mDatabaseUserNode.child("ownedProducts").child(Integer.toString(index)).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        //schedule = dataSnapshot.getValue(SmartOutlet.class);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        System.out.println("The read failed: " + databaseError.getCode());
+                    }
+                });
+                //return outlet;
+            } catch(NullPointerException e) {
+                Toast.makeText(this, "Database error!", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+    }
+//    try {
+//        outlet = new SmartOutlet();
+//        mDatabaseUserNode.child("ownedProducts").child(Integer.toString(index)).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                outlet = dataSnapshot.getValue(SmartOutlet.class);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//                System.out.println("The read failed: " + databaseError.getCode());
+//            }
+//        });
+//        return outlet;
+//    } catch(NullPointerException e) {
+//        Toast.makeText(this, "Database error!", Toast.LENGTH_SHORT).show();
+//    }
+//
+//        return outlet;
+
+    public void switchOutlet(int numberOfOutlet, boolean status) {
+        try {
+            mDatabaseUserNode.child("ownedProducts").child(Integer.toString(numberOfOutlet)).child("status").setValue(status);
+        } catch(NullPointerException e) {
+            Toast.makeText(this, "Database error!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void setOperationDay(int numberOfOutlet, int numberOfDay, WeekDay day) {
+        try {
+            mDatabaseUserNode.child("ownedProducts").child(Integer.toString(numberOfOutlet)).child("weekSchedule").
+                    child(Integer.toString(numberOfDay)).setValue(day);
+        } catch(NullPointerException e) {
+            Toast.makeText(this, "Database error!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void deleteOperationDay(int numberOfOutlet, int numberOfDay) {
+        try {
+            mDatabaseUserNode.child("ownedProducts").child(Integer.toString(numberOfOutlet)).child("weekSchedule").
+                    child(Integer.toString(numberOfDay)).child("thisDaySet").setValue(false);
+        } catch(NullPointerException e) {
+            Toast.makeText(this, "Database error!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public String getFirebaseUserId() {
+        String userId = "";
+        try {
+            userId = mAuth.getCurrentUser().getUid();
+            return userId;
+        } catch (NullPointerException e) {
+            Toast.makeText(this, "Database error!", Toast.LENGTH_SHORT).show();
+        }
+
+        return userId;
+    }
+
+    //TODO: Add name change functionality to SmartOutlet (method+GUI)
+    //TODO: Implement WiFi config (class+methods+GUI)
 }

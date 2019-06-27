@@ -10,14 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import ro.sapientia.ms.seo.R;
 import ro.sapientia.ms.seo.activity.MainActivity;
 import ro.sapientia.ms.seo.model.SmartOutlet;
-import ro.sapientia.ms.seo.model.WeekDay;
 
 public class ScheduleFragment extends Fragment implements ScheduleListAdapter.ListItemClickListener{
 
@@ -56,7 +53,7 @@ public class ScheduleFragment extends Fragment implements ScheduleListAdapter.Li
 
     private boolean areThereAnyOperationsToday() {
         for (int i=0; i<scheduleData.size(); i++) {
-            if (scheduleData.get(i).getToday().isThisDaySet()) {
+            if (scheduleData.get(i).operationToday().isThisDaySet()) {
                 return true;
             }
         }
@@ -77,6 +74,6 @@ public class ScheduleFragment extends Fragment implements ScheduleListAdapter.Li
 
     @Override
     public void onListItemClick(int clickedPosition) {
-        //TODO : Schedule fragment onClick.
+        //TODO : Schedule fragment onClick -> Open overview of outlet
     }
 }

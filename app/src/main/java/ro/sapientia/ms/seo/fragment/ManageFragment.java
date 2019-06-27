@@ -51,19 +51,16 @@ public class ManageFragment extends Fragment {
         changePasswordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder mBuilder = new AlertDialog.Builder(getActivity());
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 View mView = getLayoutInflater().inflate(R.layout.fragment_manage_user_change_password, null);
                 final EditText oldPass = mView.findViewById(R.id.old_pass_user);
                 final EditText newPass = mView.findViewById(R.id.new_pass_user);
                 final EditText confirmPass = mView.findViewById(R.id.confirm_pass_user);
-                Button submit = mView.findViewById(R.id.Submit);
 
-                mBuilder.setView(mView);
-                final AlertDialog dialog = mBuilder.create();
-                dialog.show();
-                submit.setOnClickListener(new View.OnClickListener() {
+                builder.setView(mView);
+                builder.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(View view) {
+                    public void onClick(DialogInterface dialogInterface, int i) {
                         if(oldPass.length() < 8 || newPass.length() < 8 || confirmPass.length() < 8) {
                             Toast.makeText(getActivity(),
                                     R.string.error_pass_length,
@@ -102,14 +99,20 @@ public class ManageFragment extends Fragment {
                             } catch(NullPointerException e) {
                                 Log.d(TAG,"Something went wrong!");
                             }
-
-                            dialog.dismiss();
                         }
                         else {
                             Toast.makeText(getActivity(), R.string.error_change_message, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                builder.show();
             }
         });
 

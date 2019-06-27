@@ -34,7 +34,7 @@
     <!--Schedule list item field names in fragment-->
     <string name="schedule_list_field_name">Name:</string>
     <string name="schedule_list_field_start">Start:</string>
-    <string name="schedule_list_field_operation_time">Time:</string>
+    <string name="schedule_list_field_operation_time">Duration:</string>
     <string name="schedule_no_operation">There isn\'t any scheduled operation for today!</string>
 
     <!--Profile fragment button strings-->
@@ -62,7 +62,8 @@
 
     <!--Smart outlet overview fragment add operation alert dialog-->
     <string name="smart_outlet_overview_add_operation_starting_hour">starting hour(0\-23)</string>
-    <string name="smart_outlet_overview_add_operation_duration">duration(10\-59 minutes)</string>
+    <string name="smart_outlet_overview_add_operation_starting_minute">starting minute(0\-59)</string>
+    <string name="smart_outlet_overview_add_operation_duration">duration(1\-1440 minutes)</string>
     <string name="smart_outlet_overview_add_operation_day_of_week">day of week(1\-7)</string>
 
     <!--Change user password-->

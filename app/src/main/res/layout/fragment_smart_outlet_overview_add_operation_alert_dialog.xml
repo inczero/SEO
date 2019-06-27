@@ -36,6 +36,20 @@
         app:layout_constraintTop_toBottomOf="@id/smart_outlet_overview_add_operation_week_day" />
 
     <EditText
+        android:id="@+id/smart_outlet_overview_add_operation_start_minute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:ems="12"
+        android:hint="@string/smart_outlet_overview_add_operation_starting_minute"
+        android:fontFamily="sans-serif-thin"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/smart_outlet_overview_add_operation_start_hour" />
+
+    <EditText
         android:id="@+id/smart_outlet_overview_add_operation_duration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -47,6 +61,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/smart_outlet_overview_add_operation_start_hour"/>
+        app:layout_constraintTop_toBottomOf="@id/smart_outlet_overview_add_operation_start_minute"/>
 
 </android.support.constraint.ConstraintLayout>

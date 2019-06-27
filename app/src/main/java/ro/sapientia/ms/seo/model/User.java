@@ -35,6 +35,13 @@ public class User {
         return ownedProducts;
     }
 
+    public SmartOutlet getSmartOutlet(int index) {
+        if ((ownedProducts.size() > 0) && (index <= ownedProducts.size()-1)) {
+            return ownedProducts.get(index);
+        }
+        return new SmartOutlet();
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }

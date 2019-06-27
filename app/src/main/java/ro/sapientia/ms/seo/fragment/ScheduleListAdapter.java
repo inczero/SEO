@@ -5,9 +5,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import ro.sapientia.ms.seo.R;
@@ -27,10 +31,18 @@ public class ScheduleListAdapter extends RecyclerView.Adapter<ScheduleListAdapte
 
     @Override
     public void onBindViewHolder(ScheduleListAdapter.ScheduleViewHolder holder, int position) {
+        holder.timeImage.setImageResource(R.drawable.ic_access_time_black_24dp);
         holder.name.setText(adapterData.get(position).getName());
-        holder.startDate.setText(adapterData.get(position).getToday().getStartingHour() + ":00");
+
+        Calendar startingTime = Calendar.getInstance();
+        startingTime.set(Calendar.HOUR_OF_DAY, adapterData.get(position).operationToday().getStartingHour());
+        startingTime.set(Calendar.MINUTE, adapterData.get(position).operationToday().getStartingMinute());
+        Date start = startingTime.getTime();
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+
+        holder.startDate.setText(format.format(start));
         String stringHolder = "";
-        stringHolder += adapterData.get(position).getToday().getOperationDuration();
+        stringHolder += adapterData.get(position).operationToday().getOperationDuration();
         holder.operationTime.setText(stringHolder + " minutes");
     }
 
@@ -52,7 +64,7 @@ public class ScheduleListAdapter extends RecyclerView.Adapter<ScheduleListAdapte
 
     private void processDataForTodaySchedule() {
         for (int i=0; i<mScheduleData.size(); i++) {
-            if (mScheduleData.get(i).getToday().isThisDaySet()) {
+            if (mScheduleData.get(i).operationToday().isThisDaySet()) {
                 adapterData.add(mScheduleData.get(i));
             }
         }
@@ -62,12 +74,14 @@ public class ScheduleListAdapter extends RecyclerView.Adapter<ScheduleListAdapte
         private TextView name;
         private TextView startDate;
         private TextView operationTime;
+        private ImageView timeImage;
 
         ScheduleViewHolder(View v) {
             super(v);
             name = v.findViewById(R.id.schedule_list_name_value_text_view);
             startDate = v.findViewById(R.id.schedule_list_start_value_text_view);
             operationTime = v.findViewById(R.id.schedule_list_operation_time_value_text_view);
+            timeImage = v.findViewById(R.id.schedule_list_image_view);
 
             v.setOnClickListener(this);
         }
